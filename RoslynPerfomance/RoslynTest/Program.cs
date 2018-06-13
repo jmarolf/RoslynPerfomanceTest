@@ -1,4 +1,6 @@
-﻿using BenchmarkDotNet.Running;
+﻿using BenchmarkDotNet.Configs;
+using BenchmarkDotNet.Jobs;
+using BenchmarkDotNet.Running;
 using System;
 
 namespace RoslynTest
@@ -7,8 +9,7 @@ namespace RoslynTest
     {
         static void Main(string[] args)
         {
-            //Watcher a = new Watcher();
-            var summary = BenchmarkRunner.Run<Watcher>();
+            var summary = BenchmarkRunner.Run<Watcher>(DefaultConfig.Instance.With(Job.Clr));
             Console.ReadKey();
         }
     }
