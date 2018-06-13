@@ -8,16 +8,13 @@ using System.IO;
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace RoslynTest
-{
-    public class Watcher
-    {
-        ScriptRunner<object> ScriptAction;
-        Action CompileAction;
-        Func<object> EmitAction;
+namespace RoslynTest {
+    public class Watcher {
+        readonly ScriptRunner<object> ScriptAction;
+        readonly Action CompileAction;
+        readonly Func<object> EmitAction;
 
-        public Watcher()
-        {
+        public Watcher() {
             ScriptAction = SetupScript();
             ScriptAction();
 
@@ -28,8 +25,7 @@ namespace RoslynTest
             EmitAction();
         }
 
-        private ScriptRunner<object> SetupScript()
-        {
+        private ScriptRunner<object> SetupScript() {
             var script = CSharpScript.Create(@"using System;
 using RoslynTest;
 Watcher.Runner(""123"");
@@ -39,8 +35,7 @@ Watcher.Runner(""123"");",
             return script.CreateDelegate();
         }
 
-        private Action SetupCompileAction()
-        {
+        private Action SetupCompileAction() {
             string text = @"using RoslynTest;
 public class Evaluator
 {
@@ -59,8 +54,7 @@ public class Evaluator
                                     MetadataReference.CreateFromFile(typeof(Watcher).Assembly.Location)});
 
             Assembly compiledAssembly;
-            using (MemoryStream stream = new MemoryStream())
-            {
+            using (MemoryStream stream = new MemoryStream()) {
                 Microsoft.CodeAnalysis.Emit.EmitResult compileResult = compilation.Emit(stream);
                 compiledAssembly = Assembly.Load(stream.GetBuffer());
             }
@@ -69,8 +63,7 @@ public class Evaluator
             return (Action) evaluator.GetMethod("Evaluate").CreateDelegate(typeof(Action));
         }
 
-        private Func<object> SetupEmitAction()
-        {
+        private Func<object> SetupEmitAction() {
             DynamicMethod method = new DynamicMethod("Advise", typeof(object), new Type[0]);
             ILGenerator il = method.GetILGenerator();
             var methods = typeof(Watcher).GetMethod("Runner", new Type[] { typeof(string) });
@@ -83,24 +76,11 @@ public class Evaluator
             return (Func<object>)method.CreateDelegate(typeof(Func<object>));
         }
 
-        [Benchmark]
-        public void Scripting()
-        {
-            ScriptAction();
-        }
-        [Benchmark]
-        public void Compile()
-        {
-            CompileAction();
-        }
-        [Benchmark]
-        public void Emit()
-        {
-            EmitAction();
-        }
+        [Benchmark] public void Scripting() => ScriptAction();
+        [Benchmark] public void Compile() => CompileAction();
+        [Benchmark(Baseline = true)] public void Emit() => EmitAction();
 
-        public static void Runner(string value)
-        {
+        public static void Runner(string value) {
             string result = "1";
             result += value;
         }
