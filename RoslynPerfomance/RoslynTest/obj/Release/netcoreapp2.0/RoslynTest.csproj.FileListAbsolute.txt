@@ -1,0 +1,11 @@
+C:\Users\Administrator\Desktop\Vs2017Test\新建文件夹\MongodbTest\bin\Release\netcoreapp2.0\RoslynTest.deps.json
+C:\Users\Administrator\Desktop\Vs2017Test\新建文件夹\MongodbTest\bin\Release\netcoreapp2.0\RoslynTest.runtimeconfig.json
+C:\Users\Administrator\Desktop\Vs2017Test\新建文件夹\MongodbTest\bin\Release\netcoreapp2.0\RoslynTest.runtimeconfig.dev.json
+C:\Users\Administrator\Desktop\Vs2017Test\新建文件夹\MongodbTest\bin\Release\netcoreapp2.0\RoslynTest.dll
+C:\Users\Administrator\Desktop\Vs2017Test\新建文件夹\MongodbTest\bin\Release\netcoreapp2.0\RoslynTest.pdb
+C:\Users\Administrator\Desktop\Vs2017Test\新建文件夹\MongodbTest\obj\Release\netcoreapp2.0\RoslynTest.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\Vs2017Test\新建文件夹\MongodbTest\obj\Release\netcoreapp2.0\RoslynTest.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Vs2017Test\新建文件夹\MongodbTest\obj\Release\netcoreapp2.0\RoslynTest.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\Vs2017Test\新建文件夹\MongodbTest\obj\Release\netcoreapp2.0\RoslynTest.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\Vs2017Test\新建文件夹\MongodbTest\obj\Release\netcoreapp2.0\RoslynTest.dll
+C:\Users\Administrator\Desktop\Vs2017Test\新建文件夹\MongodbTest\obj\Release\netcoreapp2.0\RoslynTest.pdb

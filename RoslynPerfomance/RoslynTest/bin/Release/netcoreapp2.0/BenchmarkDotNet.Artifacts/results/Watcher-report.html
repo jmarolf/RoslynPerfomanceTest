@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Watcher</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.10.13, OS=Windows 10.0.17134
+Intel Pentium CPU G3240 3.10GHz, 1 CPU, 2 logical cores and 2 physical cores
+Frequency=3020362 Hz, Resolution=331.0861 ns, Timer=TSC
+.NET Core SDK=2.1.300
+  [Host]     : .NET Core 2.0.7 (CoreCLR 4.6.26328.01, CoreFX 4.6.26403.03), 64bit RyuJIT  [AttachedDebugger]
+  DefaultJob : .NET Core 2.0.7 (CoreCLR 4.6.26328.01, CoreFX 4.6.26403.03), 64bit RyuJIT
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method</th><th>Mean</th><th>Error</th><th>StdDev</th>
+</tr>
+</thead><tbody><tr><td>Roslyn</td><td>247.15 ns</td><td>3.3848 ns</td><td>3.0005 ns</td>
+</tr><tr><td>Emit</td><td>50.18 ns</td><td>0.6188 ns</td><td>0.5486 ns</td>
+</tr></tbody></table>
+</body>
+</html>
